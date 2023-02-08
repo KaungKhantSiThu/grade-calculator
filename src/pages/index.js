@@ -44,16 +44,15 @@ export default function GPA_Calculator() {
   })
 
   const [sGPARecord, setsGPARecord] = useState({})
+  //const [chartGPA, setChartGPA] = useLocalStorage('gpaRecord', [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+
+  //console.log(chartGPA)
 
   const matchGrade = (gradeCode) => {
     return majorInformation.grades.find(grade => grade.code === gradeCode).value
   }
 
-  if (localStorage.getItem('gradeInfo') !== null) {
-
-  }
-
-  let [chartData, setChartData] = useState(
+  const [chartData, setChartData] = useState(
       {
         data: {
           labels: majorInformation.semesters,
@@ -88,10 +87,15 @@ export default function GPA_Calculator() {
     for (let k in sGPARecord) {
       if (sGPARecord[k].length === 0) {
         sGPARecord[k] = 0
+      } else if (sGPARecord[k].length === 1) {
+        sGPARecord[k] = sGPARecord[k][0].gpa
       } else {
-        sGPARecord[k] = sGPARecord[k].reduce((a, b) => a + b) / sGPARecord[k].length;
+        sGPARecord[k] = sGPARecord[k].reduce((a, b) => a.gpa + b.gpa) / sGPARecord[k].length;
       }
     }
+
+    //setChartGPA(Object.values(sGPARecord))
+    //console.log(chartGPA)
     setChartData({
       data: {
         labels: majorInformation.semesters,
@@ -114,10 +118,20 @@ export default function GPA_Calculator() {
       gInfo.gpa = matchGrade(gInfo.grade)
       gradeInfo.push(gInfo)
       setGradeInfo([...gradeInfo])
-      GPARecord[gInfo.semester].push(gInfo.gpa)
+      GPARecord[gInfo.semester].push({gpa: gInfo.gpa, code: gInfo.course})
       setGPARecord(GPARecord)
       coursesChanges()
     }
+  }
+
+  const deleteCourse = (course) => {
+    console.log("Deleted!", course.code)
+    GPARecord[course.semester] = GPARecord[course.semester].filter((obj) => {
+      return obj.code !== course.code
+    })
+    console.log(GPARecord)
+    setGPARecord(GPARecord)
+    coursesChanges()
   }
 
   return(
@@ -138,6 +152,7 @@ export default function GPA_Calculator() {
             <SemesterTables
                 courses={gradeInfo}
                 setGradeInfo={setGradeInfo}
+                deleteCourse={deleteCourse}
             />
           </Row>
         </Container>

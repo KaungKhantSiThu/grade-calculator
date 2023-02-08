@@ -4,16 +4,23 @@ import {TiDelete} from "react-icons/ti"
 import "./styles.css"
 import {CourseContext} from "./context";
 export default function SemesterTables(props) {
-    const {courses, setGradeInfo} = props;
+    const {courses, setGradeInfo, deleteCourse} = props;
     const {semesters} = useContext(CourseContext)
 
     const [grandGPA = 0, setGrandGPA] = useState(0)
 
+
     const deleteRow = (index) => {
+        let semester = courses.filter((obj) => {
+            return obj.course === index
+        })[0].semester
+
         let newCourses = courses.filter((obj) => {
             return obj.course !== index;
         });
         setGradeInfo([...newCourses])
+        console.log("deleting", semester, index)
+        deleteCourse({code: index, semester: semester})
     }
 
     //calculate GrandGPA
@@ -31,6 +38,7 @@ export default function SemesterTables(props) {
             document.getElementById('grandGPA').innerHTML = 'No GPA to calculate'
         }
     }, [courses, grandGPA])
+
 
 
     const SemesterTableHeader = (props, key) => {
