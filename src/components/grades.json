@@ -1,0 +1,44 @@
+{
+  "grades": [
+    {
+      "code": "A",
+      "value": 4
+    },
+    {
+      "code": "A-",
+      "value": 3.75
+    },
+    {
+      "code": "B+",
+      "value": 3.25
+    },
+    {
+      "code": "B",
+      "value": 3
+    },
+    {
+      "code": "B-",
+      "value": 2.75
+    },
+    {
+      "code": "C+",
+      "value": 2.25
+    },
+    {
+      "code": "C",
+      "value": 2
+    },
+    {
+      "code": "C-",
+      "value": 1.75
+    },
+    {
+      "code": "D",
+      "value": 1
+    },
+    {
+      "code": "F",
+      "value": 0
+    }
+  ]
+}

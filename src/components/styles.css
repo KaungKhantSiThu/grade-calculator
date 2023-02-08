@@ -1,0 +1,57 @@
+.container {
+    margin-top: 20px;
+}
+
+.form {
+    padding: 10px;
+}
+
+.button {
+    background-image: linear-gradient(to right, #89CAFF, #6589FF);
+    display: block;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 20px #89caff94;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.button:hover {
+    box-shadow: none;
+}
+
+.table {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+}
+
+.table td:hover{
+    color: white;
+    background-color: lightskyblue;
+}
+
+.table thead {
+    font-weight: 900;
+    color: #ffffff;
+    background: #6589FF;
+}
+
+.delete-icon {
+    width: 10%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.gpa-column {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.header {
+    margin-top: 10px;
+    padding: 20px;
+    text-align: center;
+    background: #6589FF;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+}
