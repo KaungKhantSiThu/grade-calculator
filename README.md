@@ -43,17 +43,17 @@ A quick look at the components created to use in this website
     └── README.md
 
 
-1.  \*\*\`inputModal.js\`\*\*: This file includes the component responsible for giving use the options to choose such as semester, course name and GPA and saving that information.
+1.  **`inputModal.js`**: This file includes the component responsible for giving use the options to choose such as semester, course name and GPA and saving that information.
 
-2.  \*\*\`GPATable.js\`\*\*: This file includes the component responsible for displaying the course information passed by InputModal component from \*\*\`inputModal.js\`\*\* in a tablular format  along with calculationg total and semestral GPA which shows up on the headers.
+2.  **`GPATable.js`**: This file includes the component responsible for displaying the course information passed by InputModal component from **`inputModal.js`** in a tablular format  along with calculationg total and semestral GPA which shows up on the headers.
 
-3.  \*\*\`LineChart.js\`\*\*: This file includes the component responsible for displaying the line chart.
+3.  **`LineChart.js`**: This file includes the component responsible for displaying the line chart.
 
-4.  \*\*\`cs-2019.json\`\*\*: This file includes all the subject groups and their related courses that 62X Computer Science students need to take.
+4.  **`cs-2019.json`**: This file includes all the subject groups and their related courses that 62X Computer Science students need to take.
 
-5.  \*\*\`it-2019.json\`\*\*: This file includes all the subject groups and their related courses that 62X Information Technology students need to take.
+5.  **`it-2019.json`**: This file includes all the subject groups and their related courses that 62X Information Technology students need to take.
 
-6.  \*\*\`README.md\`\*\*: A text file containing useful reference information about Grade Tracker project.
+6.  **`README.md`**: A text file containing useful reference information about Grade Tracker project.
 
 ## Tech Stack
 
