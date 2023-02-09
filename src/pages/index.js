@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import InputModal from "../components/InputModal";
+import InputModal from "../components/inputModal";
 import {Col, Container, Row} from "react-bootstrap";
 import SemesterTables from "../components/GPATable";
 import {useLocalStorage} from "react-use";
@@ -8,7 +8,9 @@ import LineChart from "../components/LineChart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {CourseContext} from "../components/context";
 
+//const ThemeContext = createContext(null);
 export default function GPA_Calculator() {
+
 
   const majorInformation = {
     curriculum: require('../components/cs-2019.json').curriculum,
@@ -134,16 +136,17 @@ export default function GPA_Calculator() {
     coursesChanges()
   }
 
+
   return(
       <CourseContext.Provider value={majorInformation}>
         <Container className={"container"}>
-          <Row>
-            <Col>
+          <Row md>
+            <Col md={6}>
               <InputModal
                   parentCallBack={addNewCourseInfo}
               />
             </Col>
-            <Col>
+            <Col md={6}>
               <LineChart data={chartData}/>
             </Col>
 
