@@ -21,13 +21,13 @@ The website will display the Total GPA and semestral GPA by doing the calculatio
 ![Grade Tracker Website](grade-calculator/src/screenshots/home-page.png "Home Page")
 
 ### Alert showing when trying to add course that's already in the storage
-![Alert showing when trying to add course that's already in the storage](grade-calculator/src/screenshots/alert.png "Alert")
+![Alert showing when trying to add course that's already in the storage](https://github.com/KaungKhantSiThu/grade-calculator/src/screenshots/alert.png "Alert")
 
 ### Option for IT major
-![Different courses shown when selecting IT option](grade-calculator/src/screenshots/Option-for-IT.png "Option for IT major")
+![Different courses shown when selecting IT option](https://github.com/KaungKhantSiThu/grade-calculator/src/screenshots/Option-for-IT.png "Option for IT major")
 
 ### Adaptive layout for both desktop and mobile
-![For mobile and desktop](grade-calculator/src/screenshots/Adaptive-layout.png "Adaptive layout")
+![For mobile and desktop](https://github.com/KaungKhantSiThu/grade-calculator/blob/main/src/screenshots/Adaptive-layout.png "Adaptive layout")
 ## 🧐 What's inside?
 
 A quick look at the components created to use in this website
