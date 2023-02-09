@@ -1,23 +1,25 @@
 import React, {useState} from 'react'
 import InputModal from "../components/inputModal";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Form, Navbar, Row} from "react-bootstrap";
 import SemesterTables from "../components/GPATable";
 import {useLocalStorage} from "react-use";
 import "../components/styles.css"
 import LineChart from "../components/LineChart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {CourseContext} from "../components/context";
+import logo from "../images/night.png"
 
 //const ThemeContext = createContext(null);
 export default function GPA_Calculator() {
 
-
-  const majorInformation = {
+  const [majorInformation, setMajorInformation] = useState({
     curriculum: require('../components/cs-2019.json').curriculum,
     years: ['2019', '2020', '2021', '2022', '2023'],
     terms: ['1','2','3'],
     grades: require('../components/grades.json').grades,
-  }
+  })
+
+
 
   majorInformation.semesters = majorInformation.years.flatMap((year) => (
       majorInformation.terms.map((term) => (
@@ -136,29 +138,93 @@ export default function GPA_Calculator() {
     coursesChanges()
   }
 
+  const radioChange = (e) => {
+    e.persist();
+    console.log(e.target.value);
+    //alert("Selecting another major after adding courses will cause course inconsistency in the semester tables. Please click the radio button again to confirm.")
+    let major = e.target.value;
+    if (major === 'CS') {
+      console.log('Changed to CS!')
+      setMajorInformation(
+          {
+            curriculum: require('../components/cs-2019.json').curriculum,
+            years: ['2019', '2020', '2021', '2022', '2023'],
+            terms: ['1','2','3'],
+            grades: require('../components/grades.json').grades,
+          }
+      )
+    } else {
+      console.log('Changed to IT!')
+      setMajorInformation(
+          {
+            curriculum: require('../components/it-2019.json').curriculum,
+            years: ['2019', '2020', '2021', '2022', '2023'],
+            terms: ['1','2','3'],
+            grades: require('../components/grades.json').grades,
+          }
+      )
+    }
+  };
 
   return(
-      <CourseContext.Provider value={majorInformation}>
-        <Container className={"container"}>
-          <Row md>
-            <Col md={6}>
-              <InputModal
-                  parentCallBack={addNewCourseInfo}
-              />
-            </Col>
-            <Col md={6}>
-              <LineChart data={chartData}/>
-            </Col>
+      <div className="App">
+        <Navbar bg="dark" variant="dark">
+          <Container className="justify-content-center">
+            <Navbar.Brand href="">
+              <img
+                  src={logo}
+                  width="50"
+                  height="50"
+                  alt="GPA logo"
+              />{' '}
+              Grade Tracker
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+        <CourseContext.Provider value={majorInformation}>
+          <Container className={"container"}>
+            <Form className={"form"}>
+              <Form.Group className="mb-3" controlId='major' key={`inline-radio`}>
+                <Form.Check
+                    inline
+                    label="Computer Science"
+                    name="group1"
+                    value="CS"
+                    type={"radio"}
+                    id={`reverse-radio-1`}
+                    onChange={radioChange}
+                />
+                <Form.Check
+                    inline
+                    label="Information Technology"
+                    name="group1"
+                    value="IT"
+                    type={"radio"}
+                    id={`reverse-radio-2`}
+                    onChange={radioChange}
+                />
+              </Form.Group>
+            </Form>
+            <Row md>
+              <Col md={6}>
+                <InputModal
+                    parentCallBack={addNewCourseInfo}
+                />
+              </Col>
+              <Col md={6}>
+                <LineChart data={chartData}/>
+              </Col>
 
-          </Row>
-          <Row>
-            <SemesterTables
-                courses={gradeInfo}
-                setGradeInfo={setGradeInfo}
-                deleteCourse={deleteCourse}
-            />
-          </Row>
-        </Container>
-      </CourseContext.Provider>
+            </Row>
+            <Row>
+              <SemesterTables
+                  courses={gradeInfo}
+                  setGradeInfo={setGradeInfo}
+                  deleteCourse={deleteCourse}
+              />
+            </Row>
+          </Container>
+        </CourseContext.Provider>
+      </div>
   )
 }

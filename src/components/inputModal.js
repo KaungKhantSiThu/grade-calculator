@@ -9,6 +9,7 @@ export default function InputModal(props) {
 
     const {terms, years, curriculum, grades} = useContext(CourseContext)
 
+
     const yearRef = useRef('2019');
 
     const termRef = useRef('1');
@@ -84,11 +85,8 @@ export default function InputModal(props) {
     }
 
 
-
-
     return(
         <>
-            <h1 className={"header"}>Select your course</h1>
             <Form className={"form"}>
                 <Row>
                     <Col>
