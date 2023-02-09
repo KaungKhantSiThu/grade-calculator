@@ -18,16 +18,16 @@ The website will display the Total GPA and semestral GPA by doing the calculatio
 3. Line Cart that gives you a quick overview of your GPA  over the semesters
 
 ### Home Page
-![Grade Tracker Website](/Users/kaungkhantsithu/WebstormProjects/grade-calculator/src/screenshots/home-page.png "Home Page")
+![Grade Tracker Website](grade-calculator/src/screenshots/home-page.png "Home Page")
 
 ### Alert showing when trying to add course that's already in the storage
-![Alert showing when trying to add course that's already in the storage](/Users/kaungkhantsithu/WebstormProjects/grade-calculator/src/screenshots/alert.png "Alert")
+![Alert showing when trying to add course that's already in the storage](grade-calculator/src/screenshots/alert.png "Alert")
 
 ### Option for IT major
-![Different courses shown when selecting IT option](/Users/kaungkhantsithu/WebstormProjects/grade-calculator/src/screenshots/Option-for-IT.png "Option for IT major")
+![Different courses shown when selecting IT option](grade-calculator/src/screenshots/Option-for-IT.png "Option for IT major")
 
 ### Adaptive layout for both desktop and mobile
-![For mobile and desktop](/Users/kaungkhantsithu/WebstormProjects/grade-calculator/src/screenshots/Adaptive-layout.png "Adaptive layout")
+![For mobile and desktop](grade-calculator/src/screenshots/Adaptive-layout.png "Adaptive layout")
 ## 🧐 What's inside?
 
 A quick look at the components created to use in this website
